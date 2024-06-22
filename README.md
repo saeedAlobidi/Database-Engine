@@ -1,6 +1,6 @@
 # Database-Engine
 
-Database-Engine is a lightweight, efficient database management system designed to provide basic CRUD (Create, Read, Update, Delete) operations. This project aims to offer an easy-to-use, minimalistic database solution for small-scale applications and learning purposes.
+Database-Engine is a lightweight, straightforward database management system designed to provide basic CRUD (Create, Read, Update, Delete) operations. This project aims to offer an easy-to-use, minimalistic database solution for small applications and learning purposes.
 
 # Features
 1- Data Storage: Efficient storage and retrieval of data.

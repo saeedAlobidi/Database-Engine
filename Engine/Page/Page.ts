@@ -22,7 +22,7 @@ export const exceedTubleSize: ExceedTubleSize = (sizeOfTuple: number, page: Page
 
 export const addTupleToPage: AddTupleToPage = (tuple: TupleType, page: Page) =>
     pipe(
-        sizeOfTuple(tuple),
+        sizeOfTuple(tuple),// tupleSize
         tupleSize => exceedTubleSize(tupleSize, page),// O.Option<Page>
         O.fold(() => new Page(), _page => _page),// Page
         _page => _page.addtTuple(tuple)// Page after add tuple

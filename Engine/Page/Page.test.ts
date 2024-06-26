@@ -3,20 +3,21 @@ import { Columns, Tuple } from './Tuple';
 
 describe('page', () => {
     //1- Arrange
-    var columns = [new Columns("id", 1), new Columns("name", "saeed mohammed saleh alabidi")];
+    var columns = [new Columns("id", 1), new Columns("name", "saeed")];
     var row = new Tuple(1, columns);
 
-    test('sizeOfTuple', () => {
+    test('clacalute the size Of Tuple', () => {
         //2-Act
         let size = sizeOfTuple(row);
+        let expectedSize = (new TextEncoder().encode(JSON.stringify(row)).length)
         //Assert
-        expect(size).toBe(13);
+        expect(size).toBe(expectedSize);
 
 
     });
 
-    test('if the tupple exceed the size', () => {
-        //todo 
+    // test('if the tupple exceed the size', () => {
+    //     //todo 
 
-    });
+    // });
 });

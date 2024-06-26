@@ -6,7 +6,7 @@ describe('page', () => {
     var columns = [new Columns("id", 1), new Columns("name", "saeed")];
     var row = new Tuple(1, columns);
 
-    test('clacalute the size Of Tuple', () => {
+    test('calculate the size Of Tuple', () => {
         //2-Act
         let size = sizeOfTuple(row);
         let expectedSize = (new TextEncoder().encode(JSON.stringify(row)).length)

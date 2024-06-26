@@ -3,17 +3,17 @@
 
 import { TupleType } from "./Base";
 import * as O from 'fp-ts/Option'
-import Page from "./page";
+import {Page} from "./Page";
 
 
-export type SizeOfTuple = <K, V>(data: TupleType<K, V>)
+export type SizeOfTuple = (data: TupleType)
     => number;
 
 
-export type ExceedTubleSize = <K, V>(sizeOfTuple: number, page: Page<K, V>)
-    => O.Option<Page<K, V>>;
+export type ExceedTubleSize = (sizeOfTuple: number, page: Page)
+    => O.Option<Page>;
 
-export type AddTupleToPage = <K, V>(tuple: TupleType<K, V>, page: Page<K, V>)
-    => Page<K, V>;
+export type AddTupleToPage = (tuple: TupleType, page: Page)
+    => Page;
 
 

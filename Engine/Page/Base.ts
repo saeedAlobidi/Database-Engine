@@ -1,7 +1,7 @@
 import { Config } from "../../Configuration";
-import Tuple from "./Tuple";
+import {Tuple} from "./Tuple";
 
-export type TupleType<K,V> = Tuple<K,V> | Map<K,V>;
+export type TupleType = Tuple;
 export default class Base{
 
     // page header

@@ -1,9 +1,11 @@
 
-interface columns<K,V>{
-  key: K;
-  value: V;
+type ColumnValueType = number | string;
+
+
+export   class Columns{
+ constructor( public key: ColumnValueType,public value:ColumnValueType){}
+ 
 }
-export default interface Tuple<K,V> {
-    uid: number;
-   row:columns<K,V>[],
+export   class Tuple {
+   constructor( public uid: number,public row:Columns[]){}
   }

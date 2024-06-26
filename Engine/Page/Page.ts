@@ -2,10 +2,10 @@ import * as O from 'fp-ts/Option'
 import Base, { TupleType } from "./Base";
 import { AddTupleToPage, ExceedTubleSize, SizeOfTuple } from './Types';
 import { pipe } from 'fp-ts/lib/function';
-export default class Page<K, V> extends Base {
+export  class Page extends Base {
 
-    public tuple: TupleType<K, V>[];
-    public addtTuple(data: TupleType<K, V>): Page<K, V> {
+    public tuple: TupleType[];
+    public addtTuple(data: TupleType): Page {
         this.tuple.push(data);
         return this;
     }
@@ -14,17 +14,17 @@ export default class Page<K, V> extends Base {
 
 
  
-const sizeOfTuple: SizeOfTuple = <K, V>(data: TupleType<K, V>) =>
+export const sizeOfTuple: SizeOfTuple = (data: TupleType) =>
     (new TextEncoder().encode(JSON.stringify(data)).length);
 
-const exceedTubleSize: ExceedTubleSize = <K, V>(sizeOfTuple: number, page: Page<K, V>) =>
+export const exceedTubleSize: ExceedTubleSize = (sizeOfTuple: number, page: Page) =>
     page.usedSize + sizeOfTuple >= page.pageSize ? O.some(page) : O.none;
 
-const addTupleToPage: AddTupleToPage = <K, V>(tuple: TupleType<K, V>, page: Page<K, V>) =>
+export const addTupleToPage: AddTupleToPage = (tuple: TupleType, page: Page) =>
     pipe(
         sizeOfTuple(tuple),
-        tupleSize => exceedTubleSize(tupleSize, page),// O.Option<Page<K, V>>
-        O.fold(() => new Page<K, V>(), _page => _page),// Page<K, V>
-        _page => _page.addtTuple(tuple)// Page<K, V> after add tuple
+        tupleSize => exceedTubleSize(tupleSize, page),// O.Option<Page>
+        O.fold(() => new Page(), _page => _page),// Page
+        _page => _page.addtTuple(tuple)// Page after add tuple
 
     )

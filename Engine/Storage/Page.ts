@@ -2,7 +2,7 @@ import * as O from 'fp-ts/Option'
 import Base, { TupleType } from "./Base";
 import { AddTupleToPage, ExceedTubleSize, SizeOfTuple } from './Types';
 import { pipe } from 'fp-ts/lib/function';
-export  class Page extends Base {
+export class Page extends Base {
 
     public tuple: TupleType[];
     public addtTuple(data: TupleType): Page {
@@ -11,9 +11,8 @@ export  class Page extends Base {
     }
 
 }
-
-
  
+
 export const sizeOfTuple: SizeOfTuple = (data: TupleType) =>
     (new TextEncoder().encode(JSON.stringify(data)).length);
 
